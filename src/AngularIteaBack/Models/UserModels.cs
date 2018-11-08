@@ -15,4 +15,12 @@ namespace AngularIteaBack.Models
         public string Password { get; set; }
         public string Roles { get; set; }
     }
+
+    public class LogIn
+    {
+        [Required(ErrorMessage = "LoginName is Required")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Password is required.")]
+        public string Password { get; set; }
+    }
 }

@@ -18,25 +18,36 @@ namespace AngularIteaBack.Controllers
         {
             _dataService = dataService;
         }
-        [HttpGet]
+        [HttpGet("GetUser")]
         public ActionResult<IEnumerable<User>> Get()
         {
             var rzltUsers = _dataService.GetAllUsers().ToList();
             return rzltUsers;
         }
 
-        [HttpPost]
-        public ActionResult<User> LogIn([FromBody] string userName, string password)
+        [HttpPost("LogIn")]
+        public ActionResult<User> LogIn([FromBody] LogIn logInInput)
         {
+            var rzltUsers = _dataService.GetAllUsers().ToList().Where(x=>x.LoginName== logInInput.UserName && x.Password == logInInput.Password).FirstOrDefault();
 
-            if (userName=="admin")
+            if (rzltUsers!= null)
             {
-                return new User();
+                return rzltUsers;
             }
             else {
-                throw new Exception("!!!! No such User");
+                return null;
             }
             
+        }
+
+        [HttpPost("AddUser")]
+        public ActionResult<IEnumerable<User>> AddUser([FromBody] User input)
+        {
+            Random rnd = new Random();
+            input.Id= rnd.Next(9, 93);
+            var outUser = _dataService.AddUser(input);
+            var rzltUsers = _dataService.GetAllUsers().ToList();
+            return rzltUsers;
         }
     }
 }

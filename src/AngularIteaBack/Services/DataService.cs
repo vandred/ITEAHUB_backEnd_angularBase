@@ -8,6 +8,16 @@ namespace AngularIteaBack.Services
 {
     public class DataService : IDataService
     {
+        static List<User> ListUsers = new List<User>
+        {
+            new User{Id=1, LoginName="admin", Password="123qwe", Roles="admin" },
+            new User{ Id=2, LoginName="user1", Password="123qwe", Roles="moderator"  },
+            new User{Id=3, LoginName="user2", Password="123qwe", Roles=""  },
+            new User{Id=4, LoginName="user3", Password="123qwe", Roles=""  },
+
+        };
+            
+
         public Book CreateUpdateBook(Book bookInput)
         {
 
@@ -37,7 +47,13 @@ namespace AngularIteaBack.Services
 
         public IEnumerable<User> GetAllUsers()
         {
-            return new List<User>();
+            return ListUsers;
+        }
+
+        public IEnumerable<User> AddUser(User userInput)
+        {
+            ListUsers.Add(userInput);
+            return ListUsers;
         }
 
         public Order GetOrder(string orderId)

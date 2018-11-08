@@ -9,6 +9,7 @@ namespace AngularIteaBack.Services
     public interface IDataService
     {
         IEnumerable<User> GetAllUsers();
+        IEnumerable<User> AddUser(User userInput);
 
         //
         Group GetSchedule(string id);
