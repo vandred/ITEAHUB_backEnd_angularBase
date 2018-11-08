@@ -61,6 +61,8 @@ namespace AngularIteaBack
                 app.UseHsts();
             }
 
+            
+
             app.UseCors("AllowAll");
             app.UseSwagger();
             app.UseSwaggerUI(c =>

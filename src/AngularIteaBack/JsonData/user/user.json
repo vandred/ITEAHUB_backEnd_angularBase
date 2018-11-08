@@ -1,0 +1,1 @@
+[{"Id":1,"LoginName":"admin","Password":"123qwe","Roles":"admin"},{"Id":2,"LoginName":"user1","Password":"123qwe","Roles":"moderator"},{"Id":3,"LoginName":"user2","Password":"123qwe","Roles":""},{"Id":4,"LoginName":"user3","Password":"123qwe","Roles":""},{"Id":52,"LoginName":"TestUser","Password":"123qwe","Roles":"role"}]

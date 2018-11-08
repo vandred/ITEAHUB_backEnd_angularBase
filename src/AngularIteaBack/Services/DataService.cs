@@ -1,13 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AngularIteaBack.Models;
+using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 
 namespace AngularIteaBack.Services
 {
     public class DataService : IDataService
     {
+        private readonly IHostingEnvironment _env;
+        private string webRootPath;
+        private string userPath;
+        private string shedulerPath;
+
+        public DataService(IHostingEnvironment hostingEnvironment)
+        {
+            _env = hostingEnvironment;
+             webRootPath = Path.Combine(_env.WebRootPath);
+             userPath = Path.Combine(_env.ContentRootPath, $"JsonData{Path.DirectorySeparatorChar}user{Path.DirectorySeparatorChar}user.json");
+            shedulerPath = Path.Combine(_env.ContentRootPath, $"JsonData{Path.DirectorySeparatorChar}sheduler");
+
+        }
         static List<User> ListUsers = new List<User>
         {
             new User{Id=1, LoginName="admin", Password="123qwe", Roles="admin" },
@@ -29,9 +45,9 @@ namespace AngularIteaBack.Services
             return new Order();
         }
 
-        public Group CreateUpdateSchedule(Group schedule)
+        public CalendarForGroup CreateUpdateSchedule(CalendarForGroup schedule)
         {
-            return new Group();
+            return new CalendarForGroup();
         }
 
         public IEnumerable<Book> GetAllBooks()
@@ -47,6 +63,13 @@ namespace AngularIteaBack.Services
 
         public IEnumerable<User> GetAllUsers()
         {
+           
+            
+           // string usersJson = JsonConvert.SerializeObject(ListUsers);
+            // File.WriteAllText(userPath,usersJson);
+            string usersJson =  File.ReadAllText(userPath);
+            List<User> lusers = JsonConvert.DeserializeObject<List<User>>(usersJson);
+
             return ListUsers;
         }
 
@@ -60,11 +83,20 @@ namespace AngularIteaBack.Services
         {
             return new Order();
         }
-
-        public Group GetSchedule(string id)
+                             
+        public CalendarForGroup GetSchedule(string id)
         {
-            return new Group();
+            return new CalendarForGroup();
         }
+        public string[] AllGetSchedule()
+        {
+            string[] filePaths = Directory.GetFiles(shedulerPath, "*.json",SearchOption.TopDirectoryOnly);
+
+            filePaths = filePaths.Select(x => Path.GetFileNameWithoutExtension(x)).ToArray();
+
+            return filePaths;
+        }
+
 
         public IEnumerable<Order> GetUserOrders()
         {

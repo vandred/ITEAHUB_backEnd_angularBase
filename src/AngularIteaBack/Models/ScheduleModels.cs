@@ -5,20 +5,25 @@ using System.Threading.Tasks;
 
 namespace AngularIteaBack.Models
 {
-    public class Group
+    public class CalendarForGroup
     {
         public int Id { get; set; }
-        public string NameGroup { get; set; }
-        public List<Lessons> Schedule { get; set; }
+        public string Name { get; set; }
+        public List<Lessons> Lessons { get; set; }
     }
 
     public class Lessons
     {
         public int Id { get; set; }
-        public int TypeLesson { get; set; }
-        public string NameLesson { get; set; }
-        public string FIOTeacher { get; set; }
-        public int RoomNumber { get; set; }
-        public string NumberPrefix { get; set; }
+        public int IdGroup { get; set; }
+        public string FIOlector { get; set; }
+        public string NameOfLesson { get; set; }
+        public int TypeOfLeson { get; set; }
+        public bool IsFirst { get; set; }
+
+        public int DayOfWeek { get; set; }
+        public int ParaNumber { get; set; }
+
+
     }
 }

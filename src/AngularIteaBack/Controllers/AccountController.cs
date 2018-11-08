@@ -22,6 +22,7 @@ namespace AngularIteaBack.Controllers
         public ActionResult<IEnumerable<User>> Get()
         {
             var rzltUsers = _dataService.GetAllUsers().ToList();
+
             return rzltUsers;
         }
 

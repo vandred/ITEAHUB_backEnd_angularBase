@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AngularIteaBack.Models;
 using AngularIteaBack.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,28 @@ namespace AngularIteaBack.Controllers
         {
             _dataService = dataService;
         }
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet("GetAllBooks")]
+        public ActionResult<IEnumerable<Book>> GetAllBooks()
         {
-            return new string[] { "value1", "value2", "value3", "value4", "value5", "value6" };
+            return new List<Book>();
+        }
+
+        [HttpPost("CreateNewBook")]
+        public ActionResult<Book> CreateNewBook(Book newBook)
+        {
+            return new Book();
+        }
+
+        [HttpGet("GetAllOrders")]
+        public ActionResult<IEnumerable<Order>> ListOrder()
+        {
+            return new List<Order>();
+        }
+
+        [HttpPost("NewOrder")]
+        public ActionResult<Order> NewOrder(Order NewOrder)
+        {
+            return new Order();
         }
     }
 }

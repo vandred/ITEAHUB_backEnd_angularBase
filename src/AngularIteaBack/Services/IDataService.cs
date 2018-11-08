@@ -12,8 +12,9 @@ namespace AngularIteaBack.Services
         IEnumerable<User> AddUser(User userInput);
 
         //
-        Group GetSchedule(string id);
-        Group CreateUpdateSchedule(Group schedule);
+        CalendarForGroup GetSchedule(string id);
+        CalendarForGroup CreateUpdateSchedule(CalendarForGroup schedule);
+        string[] AllGetSchedule();
         //
         IEnumerable<Book> GetAllBooks();
         Book CreateUpdateBook(Book bookInput);
