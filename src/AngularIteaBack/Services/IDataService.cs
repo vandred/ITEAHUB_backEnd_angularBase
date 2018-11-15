@@ -14,13 +14,14 @@ namespace AngularIteaBack.Services
         //
         CalendarForGroup GetSchedule(string id);
         CalendarForGroup CreateUpdateSchedule(CalendarForGroup schedule);
+        bool DeleteSchedule(string id);
         string[] AllGetSchedule();
         //
         IEnumerable<Book> GetAllBooks();
         Book CreateUpdateBook(Book bookInput);
-        Order CreateUpdateBook(Order OrderInput);
+        bool DeleteBook(string id);
+        Order CreateUpdateOrder(Order OrderInput);
         Order GetOrder(string orderId);
         IEnumerable<Order> GetAllOrders();
-        IEnumerable<Order> GetUserOrders();
     }
 }

@@ -19,11 +19,6 @@ namespace AngularIteaBack.Controllers
             _dataService = dataService;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2", "value3", "value4", "value5", "value6" };
-        }
 
         [HttpGet("GetAllGroups")]
         public ActionResult<IEnumerable<string>> GetAllGroups()
@@ -32,21 +27,68 @@ namespace AngularIteaBack.Controllers
             return _dataService.AllGetSchedule();
         }
 
-        [HttpGet("GetGroups")]
-        public ActionResult<CalendarForGroup> CreateGroups(string inputstr)
+        [HttpGet("GetGroup")]
+        public ActionResult<CalendarForGroup> GetGroup(string inputstr)
         {
-            return new CalendarForGroup();
+            try
+            {
+                var sheduler = _dataService.GetSchedule(inputstr);
+                return sheduler;
+            }
+            catch (Exception)
+            {
+
+                return new CalendarForGroup(); ;
+            }
+            
         }
 
         [HttpPost("AddNewGroup")]
         public ActionResult<CalendarForGroup> CreateGroups(CalendarForGroup input)
         {
-            return new CalendarForGroup();
+            try
+            {
+                var nGroup = _dataService.CreateUpdateSchedule(input);
+                return nGroup;
+
+            }
+            catch (Exception ex)
+            {
+
+                return new CalendarForGroup(); 
+            }
+         
+        }
+
+        [HttpDelete("deleteGroup")]
+        public ActionResult<bool> DeleteGroups(string input)
+        {
+            try
+            {
+                var nGroup = _dataService.DeleteSchedule(input);
+                return nGroup;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
         }
         [HttpPost("UpdateGroup")]
-        public ActionResult<CalendarForGroup> UPdateGroups(CalendarForGroup input)
+        public ActionResult<CalendarForGroup> UpdateGroups(CalendarForGroup input)
         {
-            return new CalendarForGroup();
+            try
+            {
+                var nGroup = _dataService.CreateUpdateSchedule(input);
+                return nGroup;
+
+            }
+            catch (Exception ex)
+            {
+
+                return new CalendarForGroup();
+            }
         }
     }
 }

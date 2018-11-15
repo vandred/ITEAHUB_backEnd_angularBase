@@ -1,0 +1,1 @@
+[{"Id":0,"OrderOwner":{"Id":0,"LoginName":"string","Password":"string","Roles":"string"},"ListBooks":[{"Id":0,"OrderBook":{"Id":0,"Title":"string","About":"string","URLImg":"string","Price":0.0,"TypeOfBook":1,"Author":"string"},"Quantity":0,"Price":0.0}]}]

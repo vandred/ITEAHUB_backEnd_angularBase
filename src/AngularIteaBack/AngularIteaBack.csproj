@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="JsonData\bookshop\books\" />
-    <Folder Include="JsonData\bookshop\orders\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -20,6 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="JsonData\bookshop\books.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="JsonData\bookshop\orders.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="JsonData\sheduler\ft-18.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
