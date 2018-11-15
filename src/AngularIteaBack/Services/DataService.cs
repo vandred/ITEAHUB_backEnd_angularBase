@@ -49,6 +49,7 @@ namespace AngularIteaBack.Services
 
             if (b1 == null)
             {
+                bookInput.Id = lbooks.Count + 1;
                 lbooks.Add(bookInput);
             }
             else {
@@ -94,8 +95,9 @@ namespace AngularIteaBack.Services
         {
             string usersJson = File.ReadAllText(userPath);
             List<User> lusers = JsonConvert.DeserializeObject<List<User>>(usersJson);
-            File.WriteAllText(userPath, JsonConvert.SerializeObject(usersJson));
+            userInput.Id = lusers.Count + 1;
             lusers.Add(userInput);
+            File.WriteAllText(userPath, JsonConvert.SerializeObject(lusers));
             return lusers;
         }
 
@@ -137,6 +139,8 @@ namespace AngularIteaBack.Services
 
         public CalendarForGroup CreateUpdateSchedule(CalendarForGroup schedule)
         {
+            int lenthId = AllGetSchedule().Count()+1;
+            schedule.Id = lenthId;
             string newSchedulePath = shedulerPath + Path.DirectorySeparatorChar + schedule.Name + ".json";
            // string newSchedulePath = Path.Combine(shedulerPath, $"{ Path.DirectorySeparatorChar}", fileName);
             File.WriteAllText(newSchedulePath, JsonConvert.SerializeObject(schedule));
