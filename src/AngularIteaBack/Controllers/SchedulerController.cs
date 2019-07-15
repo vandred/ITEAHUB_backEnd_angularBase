@@ -8,87 +8,87 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AngularIteaBack.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class SchedulerController : ControllerBase
-    {
-        private IDataService _dataService;
+    //[Route("api/[controller]")]
+    //[ApiController]
+    //public class SchedulerController : ControllerBase
+    //{
+    //    private IDataService _dataService;
 
-        public SchedulerController(IDataService dataService)
-        {
-            _dataService = dataService;
-        }
+    //    public SchedulerController(IDataService dataService)
+    //    {
+    //        _dataService = dataService;
+    //    }
 
 
-        [HttpGet("GetAllGroups")]
-        public ActionResult<IEnumerable<string>> GetAllGroups()
-        {
-            _dataService.AllGetSchedule();
-            return _dataService.AllGetSchedule();
-        }
+    //    [HttpGet("GetAllGroups")]
+    //    public ActionResult<IEnumerable<string>> GetAllGroups()
+    //    {
+    //        _dataService.AllGetSchedule();
+    //        return _dataService.AllGetSchedule();
+    //    }
 
-        [HttpGet("GetGroup")]
-        public ActionResult<CalendarForGroup> GetGroup(string inputstr)
-        {
-            try
-            {
-                var sheduler = _dataService.GetSchedule(inputstr);
-                return sheduler;
-            }
-            catch (Exception)
-            {
+    //    [HttpGet("GetGroup")]
+    //    public ActionResult<CalendarForGroup> GetGroup(string inputstr)
+    //    {
+    //        try
+    //        {
+    //            var sheduler = _dataService.GetSchedule(inputstr);
+    //            return sheduler;
+    //        }
+    //        catch (Exception)
+    //        {
 
-                return new CalendarForGroup(); ;
-            }
+    //            return new CalendarForGroup(); ;
+    //        }
             
-        }
+    //    }
 
-        [HttpPost("AddNewGroup")]
-        public ActionResult<CalendarForGroup> CreateGroups(CalendarForGroup input)
-        {
-            try
-            {
-                var nGroup = _dataService.CreateUpdateSchedule(input);
-                return nGroup;
+    //    [HttpPost("AddNewGroup")]
+    //    public ActionResult<CalendarForGroup> CreateGroups(CalendarForGroup input)
+    //    {
+    //        try
+    //        {
+    //            var nGroup = _dataService.CreateUpdateSchedule(input);
+    //            return nGroup;
 
-            }
-            catch (Exception ex)
-            {
+    //        }
+    //        catch (Exception ex)
+    //        {
 
-                return new CalendarForGroup(); 
-            }
+    //            return new CalendarForGroup(); 
+    //        }
          
-        }
+    //    }
 
-        [HttpDelete("deleteGroup")]
-        public ActionResult<bool> DeleteGroups(string input)
-        {
-            try
-            {
-                var nGroup = _dataService.DeleteSchedule(input);
-                return nGroup;
+    //    [HttpDelete("deleteGroup")]
+    //    public ActionResult<bool> DeleteGroups(string input)
+    //    {
+    //        try
+    //        {
+    //            var nGroup = _dataService.DeleteSchedule(input);
+    //            return nGroup;
 
-            }
-            catch (Exception ex)
-            {
+    //        }
+    //        catch (Exception ex)
+    //        {
 
-                return false;
-            }
-        }
-        [HttpPost("UpdateGroup")]
-        public ActionResult<CalendarForGroup> UpdateGroups(CalendarForGroup input)
-        {
-            try
-            {
-                var nGroup = _dataService.CreateUpdateSchedule(input);
-                return nGroup;
+    //            return false;
+    //        }
+    //    }
+    //    [HttpPost("UpdateGroup")]
+    //    public ActionResult<CalendarForGroup> UpdateGroups(CalendarForGroup input)
+    //    {
+    //        try
+    //        {
+    //            var nGroup = _dataService.CreateUpdateSchedule(input);
+    //            return nGroup;
 
-            }
-            catch (Exception ex)
-            {
+    //        }
+    //        catch (Exception ex)
+    //        {
 
-                return new CalendarForGroup();
-            }
-        }
-    }
+    //            return new CalendarForGroup();
+    //        }
+    //    }
+    //}
 }

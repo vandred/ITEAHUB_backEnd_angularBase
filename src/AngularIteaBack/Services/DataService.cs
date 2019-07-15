@@ -21,13 +21,13 @@ namespace AngularIteaBack.Services
         public DataService(IHostingEnvironment hostingEnvironment)
         {
             _env = hostingEnvironment;
-             webRootPath = Path.Combine(_env.WebRootPath);
+             webRootPath = Path.Combine(_env.ContentRootPath);
 
 
-             userPath = Path.Combine(_env.WebRootPath, $"JsonData{Path.DirectorySeparatorChar}user{Path.DirectorySeparatorChar}user.json");
-            shedulerPath = Path.Combine(_env.WebRootPath, $"JsonData{Path.DirectorySeparatorChar}sheduler");
-            bookPath= Path.Combine(_env.WebRootPath, $"JsonData{Path.DirectorySeparatorChar}bookshop{Path.DirectorySeparatorChar}books.json");
-            ordersPath = Path.Combine(_env.WebRootPath, $"JsonData{Path.DirectorySeparatorChar}bookshop{Path.DirectorySeparatorChar}orders.json");
+             userPath = Path.Combine(webRootPath, $"JsonData{Path.DirectorySeparatorChar}user{Path.DirectorySeparatorChar}user.json");
+            shedulerPath = Path.Combine(webRootPath, $"JsonData{Path.DirectorySeparatorChar}sheduler");
+            bookPath= Path.Combine(webRootPath, $"JsonData{Path.DirectorySeparatorChar}bookshop{Path.DirectorySeparatorChar}books.json");
+            ordersPath = Path.Combine(webRootPath, $"JsonData{Path.DirectorySeparatorChar}bookshop{Path.DirectorySeparatorChar}orders.json");
 
 
         }
