@@ -25,21 +25,25 @@ namespace AngularIteaBack.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> GetParametrs(int id)
         {
-            return "value";
+            return "Get Parametrs -" + id;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<string> Post([FromBody] DataValue value)
         {
+            string rzlt = "Post Reqest sucsess: " + value.Value;
+            return rzlt;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<string> Put(int id, [FromBody] DataValue value)
         {
+            string rzlt = "Put Reqest sucsess - " + value.Value + " - With parametr:" + id;
+            return rzlt;
         }
 
         // DELETE api/values/5
@@ -48,4 +52,11 @@ namespace AngularIteaBack.Controllers
         {
         }
     }
+
+
+    public class DataValue {
+        public int MyInt { get; set; }
+        public string Value { get; set; }
+    }
+
 }

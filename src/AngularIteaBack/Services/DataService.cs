@@ -13,13 +13,13 @@ namespace AngularIteaBack.Services
     {
         private readonly IHostingEnvironment _env;
         private string webRootPath;
-        private string userPath;
-        private string shedulerPath;
+        private readonly string userPath;
+        private readonly string shedulerPath;
 
         public DataService(IHostingEnvironment hostingEnvironment)
         {
             _env = hostingEnvironment;
-             webRootPath = Path.Combine(_env.WebRootPath);
+            /// webRootPath = Path.Combine(_env.WebRootPath);
              userPath = Path.Combine(_env.ContentRootPath, $"JsonData{Path.DirectorySeparatorChar}user{Path.DirectorySeparatorChar}user.json");
             shedulerPath = Path.Combine(_env.ContentRootPath, $"JsonData{Path.DirectorySeparatorChar}sheduler");
 
