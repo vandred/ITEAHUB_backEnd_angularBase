@@ -21,25 +21,87 @@ namespace AngularIteaBack.Controllers
         [HttpGet("GetAllBooks")]
         public ActionResult<IEnumerable<Book>> GetAllBooks()
         {
-            return new List<Book>();
+            try
+            {
+                var lbook = _dataService.GetAllBooks();
+                return lbook.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                return new List<Book>(); 
+            }
+           
         }
 
         [HttpPost("CreateNewBook")]
         public ActionResult<Book> CreateNewBook(Book newBook)
         {
-            return new Book();
+            try
+            {
+                var save = _dataService.CreateUpdateBook(newBook);
+
+                return save;
+
+            }
+            catch (Exception ex)
+            {
+                return new Book();
+               
+            }
+            
         }
+        [HttpDelete("DeleteBook")]
+        public ActionResult<bool> DeleteBook(string bookId)
+        {
+            try
+            {
+                var save = _dataService.DeleteBook(bookId);
+
+                return save;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+
+            }
+
+        }
+
+
 
         [HttpGet("GetAllOrders")]
         public ActionResult<IEnumerable<Order>> ListOrder()
         {
-            return new List<Order>();
+            try
+            {
+                var lorder = _dataService.GetAllOrders();
+                return lorder.ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                return new List<Order>();
+            }
+           
         }
 
         [HttpPost("NewOrder")]
         public ActionResult<Order> NewOrder(Order NewOrder)
         {
-            return new Order();
+            try
+            {
+                var lorder = _dataService.CreateUpdateOrder(NewOrder);
+                return lorder;
+
+            }
+            catch (Exception ex)
+            {
+
+                return new Order();
+            }
         }
     }
 }

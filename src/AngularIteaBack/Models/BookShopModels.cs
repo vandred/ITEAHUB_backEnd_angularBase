@@ -20,21 +20,12 @@ namespace AngularIteaBack.Models
         public string About { get; set; }
         public string URLImg { get; set; }
         public float Price { get; set; }
-
-
-        public TypeOfBook MyProperty { get; set; }
-        public Author Author { get; set; }
+        public TypeOfBook TypeOfBook { get; set; }
+        public string Author { get; set; }
 
     }
 
-    public class Author
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string About { get; set; }
 
-    }
 
     public class OrderItem
     {
