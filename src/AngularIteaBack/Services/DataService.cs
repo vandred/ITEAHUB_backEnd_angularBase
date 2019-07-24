@@ -70,6 +70,14 @@ namespace AngularIteaBack.Services
 
             return lbooks;
         }
+
+        public Book GetBook(int id)
+        {
+            string BooksJson = File.ReadAllText(bookPath);
+            List<Book> lbooks = JsonConvert.DeserializeObject<List<Book>>(BooksJson);
+            var rzlt = lbooks.Where(x=> x.Id == id).FirstOrDefault();
+            return rzlt;
+        }
         public bool DeleteBook(string idBook)
         {
             string BooksJson = File.ReadAllText(bookPath);

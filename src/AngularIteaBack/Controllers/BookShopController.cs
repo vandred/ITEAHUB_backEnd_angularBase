@@ -34,6 +34,23 @@ namespace AngularIteaBack.Controllers
            
         }
 
+        [HttpGet("GetBook")]
+        public ActionResult<Book> GetBook(int id)
+        {
+            try
+            {
+                var lbook = _dataService.GetBook(id);
+                return new Book();
+            }
+            catch (Exception ex)
+            {
+
+                return new Book();
+            }
+
+        }
+
+
         [HttpPost("CreateNewBook")]
         public ActionResult<Book> CreateNewBook(Book newBook)
         {

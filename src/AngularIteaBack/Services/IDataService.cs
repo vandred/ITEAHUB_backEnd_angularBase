@@ -18,6 +18,7 @@ namespace AngularIteaBack.Services
         string[] AllGetSchedule();
         //
         IEnumerable<Book> GetAllBooks();
+        Book GetBook(int id);
         Book CreateUpdateBook(Book bookInput);
         bool DeleteBook(string id);
         Order CreateUpdateOrder(Order OrderInput);
