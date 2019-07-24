@@ -40,7 +40,7 @@ namespace AngularIteaBack.Controllers
             try
             {
                 var lbook = _dataService.GetBook(id);
-                return new Book();
+                return lbook;
             }
             catch (Exception ex)
             {

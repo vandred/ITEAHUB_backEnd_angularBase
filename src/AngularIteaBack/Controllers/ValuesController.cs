@@ -32,18 +32,21 @@ namespace AngularIteaBack.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult<string> Post([FromBody] DataValue value)
+        public ActionResult<DataValue> Post([FromBody] DataValue value)
         {
-            string rzlt = "Post Reqest sucsess: " + value.Value;
-            return rzlt;
+            value.Value = "Post Reqest sucsess: " + value.Value;
+            value.MyInt = 234;
+            return value;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult<string> Put(int id, [FromBody] DataValue value)
+        public ActionResult<DataValue> Put(int id, [FromBody] DataValue value)
         {
             string rzlt = "Put Reqest sucsess - " + value.Value + " - With parametr:" + id;
-            return rzlt;
+            value.Value = rzlt;
+            value.MyInt = 234;
+            return value;
         }
 
         // DELETE api/values/5
